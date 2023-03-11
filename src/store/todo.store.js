@@ -8,10 +8,11 @@ const Filters = {
 
 const state = {
   todos: [
-    new Todo('Hola'),
-    new Todo('Hola'),
-    new Todo('Hola'),
-    new Todo('Hola'),
+    new Todo('Ir a comprar comida'),
+    new Todo('Pedir cosas por amazon'),
+    new Todo('Ir al trabajo'),
+    new Todo('Comprar comida para las gatas'),
+    new Todo('Reparar el aire acondicionado'),
   ],
   filter: Filters.All,
 };
