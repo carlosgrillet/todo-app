@@ -26,7 +26,16 @@ const loadStore = () => {
 };
 
 const getTodos = (filter = Filters.All) => {
-  throw new Error('Not implemented');
+  switch (filter) {
+    case Filters.All:
+      return [...state.todos];
+    case Filters.Completed:
+      return state.todos.filter((todo) => todo.done);
+    case Filters.Pending:
+      return state.todos.filter((todo) => !todo.done);
+    default:
+      throw new Error('Opcion no permitida');
+  }
 };
 
 const addTodo = () => {
