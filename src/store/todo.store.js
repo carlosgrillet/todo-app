@@ -34,28 +34,38 @@ const getTodos = (filter = Filters.All) => {
     case Filters.Pending:
       return state.todos.filter((todo) => !todo.done);
     default:
-      throw new Error('Opcion no permitida');
+      throw new Error(`Option ${filter} not valid`);
   }
 };
 
-const addTodo = () => {
-  throw new Error('Not implemented');
+const addTodo = (description) => {
+  if (!description) throw new Error('Description required');
+  state.todos.push(new Todo(description));
 };
 
-const toggleTodo = () => {
-  throw new Error('Not implemented');
+const toggleTodo = (todoId) => {
+  state.todos = state.todos.map((todo) => {
+    if (todo.id === todoId) {
+      todo.done = !todo.done;
+    }
+    return todo;
+  });
 };
 
-const deleteTodo = () => {
-  throw new Error('Not implemented');
+const deleteTodo = (todoId) => {
+  state.todos = state.todos.filter((todo) => todo.id !== todoId);
 };
 
-const deleteCompleted = () => {
-  throw new Error('Not implemented');
+const deleteCompleted = (todoId) => {
+  state.todos = state.todos.filter((todo) => todo.done);
 };
 
 const setFilter = (newFilter = Filters.All) => {
-  throw new Error('Not implemented');
+  state.filter = newFilter;
+};
+
+const getCurrentFilter = (newFilter = Filters.All) => {
+  return state.filter;
 };
 
 export default {
@@ -67,4 +77,5 @@ export default {
   deleteTodo,
   deleteCompleted,
   setFilter,
+  getCurrentFilter,
 };
