@@ -1,6 +1,6 @@
 import { Todo } from '../todos/models/todo.models';
 
-const Filters = {
+export const Filters = {
   All: 'All',
   Completed: 'Completed',
   Pending: 'Pending',
