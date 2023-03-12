@@ -7,10 +7,7 @@ export const Filters = {
 };
 
 const state = {
-  todos: [
-    new Todo('Reparar las luces del carro'),
-    new Todo('Pedir cosas por amazon'),
-  ],
+  todos: [],
   filter: Filters.All,
 };
 
