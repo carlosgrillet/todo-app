@@ -3,6 +3,7 @@ import todoStore from '../store/todo.store';
 import { renderTodos } from './models/use-cases';
 
 const elementIds = {
+  clearCompleted: '.clear-completed',
   TodoList: '.todo-list',
   newTodoInput: '.new-todo',
 };
@@ -26,6 +27,7 @@ export const App = (elementId) => {
 
   const newDescriptionInput = document.querySelector(elementIds.newTodoInput);
   const todoListUL = document.querySelector(elementIds.TodoList);
+  const deleteAllButton = document.querySelector(elementIds.clearCompleted);
 
   newDescriptionInput.addEventListener('keydown', (event) => {
     if (event.keyCode !== 13) return;
@@ -47,6 +49,11 @@ export const App = (elementId) => {
       todoStore.deleteTodo(selectedTodo);
     }
 
+    generarTodos();
+  });
+
+  deleteAllButton.addEventListener('click', () => {
+    todoStore.deleteCompleted();
     generarTodos();
   });
 };
