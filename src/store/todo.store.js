@@ -8,11 +8,11 @@ const Filters = {
 
 const state = {
   todos: [
-    new Todo('Reparar las luces del carro'),
-    new Todo('Pedir cosas por amazon'),
-    new Todo('Ir al trabajo'),
-    new Todo('Comprar comida para las gatas'),
-    new Todo('Reparar el aire acondicionado'),
+    // new Todo('Reparar las luces del carro'),
+    // new Todo('Pedir cosas por amazon'),
+    // new Todo('Ir al trabajo'),
+    // new Todo('Comprar comida para las gatas'),
+    // new Todo('Reparar el aire acondicionado'),
   ],
   filter: Filters.All,
 };
