@@ -25,12 +25,20 @@ export const App = (elementId) => {
   })();
 
   const newDescriptionInput = document.querySelector(elementIds.newTodoInput);
+  const todoListUL = document.querySelector(elementIds.TodoList);
 
   newDescriptionInput.addEventListener('keydown', (event) => {
     if (event.keyCode !== 13) return;
     if (event.target.value.trim().lenght === 0) return;
     todoStore.addTodo(event.target.value);
     event.target.value = '';
+    generarTodos();
+  });
+
+  todoListUL.addEventListener('click', (event) => {
+    const element = event.target.closest('[data-id]');
+    const selectedTodo = element.getAttribute('data-id');
+    todoStore.toggleTodo(selectedTodo);
     generarTodos();
   });
 };
